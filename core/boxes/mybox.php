@@ -41,7 +41,7 @@ class mybox extends ModeleBoxes
 	 * @var string Box icon (in configuration page)
 	 * Automatically calls the icon named with the corresponding "object_" prefix
 	 */
-	public $boximg = "mymodule@mymodule";
+	public $boximg = "prestashop@prestashop";
 
 	/**
 	 * @var string Box label (in configuration page)
@@ -113,7 +113,7 @@ class mybox extends ModeleBoxes
 			// Add a link
 			'sublink' => 'http://example.com',
 			// Sublink icon placed after the text
-			'subpicto' => 'object_mymodule@mymodule',
+			'subpicto' => 'object_prestashop@prestashop',
 			// Sublink icon HTML alt text
 			'subtext' => '',
 			// Sublink HTML target
@@ -135,7 +135,7 @@ class mybox extends ModeleBoxes
 					// HTML properties of the TD element
 					'td'           => '',
 					// Fist line logo
-					'logo'         => 'mymodule@mymodule',
+					'logo'         => 'prestashop@prestashop',
 					// Main text
 					'text'         => 'My text',
 					// Secondary text

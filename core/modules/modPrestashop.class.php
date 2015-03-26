@@ -17,18 +17,18 @@
  */
 
 /**
- * 	\defgroup	mymodule	MyModule module
- * 	\brief		MyModule module descriptor.
- * 	\file		core/modules/modMyModule.class.php
- * 	\ingroup	mymodule
- * 	\brief		Description and activation file for module MyModule
+ * 	\defgroup	prestashop	Prestashop module
+ * 	\brief		Prestashop module descriptor.
+ * 	\file		core/modules/modPrestashop.class.php
+ * 	\ingroup	prestashop
+ * 	\brief		Description and activation file for module Prestashop
  */
 include_once DOL_DOCUMENT_ROOT . "/core/modules/DolibarrModules.class.php";
 
 /**
- * Description and activation class for module MyModule
+ * Description and activation class for module Prestashop
  */
-class modMyModule extends DolibarrModules
+class modPrestashop extends DolibarrModules
 {
 
 	/**
@@ -43,23 +43,18 @@ class modMyModule extends DolibarrModules
 		$this->db = $db;
 
 		// Id for module (must be unique).
-		// Use a free id here
-		// (See http://wiki.dolibarr.org/index.php/List_of_modules_id for available ranges).
-		$this->numero = 10000;
+		$this->numero = 647846;
 		// Key text used to identify module (for permissions, menus, etc...)
-		$this->rights_class = 'mymodule';
+		$this->rights_class = 'prestashop';
 
 		// Family can be 'crm','financial','hr','projects','products','ecm','technic','other'
 		// It is used to group modules in module setup page
 		$this->family = "other";
-		// Module label (no space allowed)
-		// used if translation string 'ModuleXXXName' not found
-		// (where XXX is value of numeric property 'numero' of module)
 		$this->name = preg_replace('/^mod/i', '', get_class($this));
 		// Module description
 		// used if translation string 'ModuleXXXDesc' not found
 		// (where XXX is value of numeric property 'numero' of module)
-		$this->description = "Description of module MyModule";
+		$this->description = "Synchronise products and orders from your prestashop website";
 		// Possible values for version are: 'development', 'experimental' or version
 		$this->version = 'development';
 		// Key used in llx_const table to save module status enabled/disabled
@@ -67,13 +62,12 @@ class modMyModule extends DolibarrModules
 		$this->const_name = 'MAIN_MODULE_' . strtoupper($this->name);
 		// Where to store the module in setup page
 		// (0=common,1=interface,2=others,3=very specific)
-		$this->special = 3;
+		$this->special = 1;
 		// Name of image file used for this module.
 		// If file is in theme/yourtheme/img directory under name object_pictovalue.png
 		// use this->picto='pictovalue'
 		// If file is in module/img directory under name object_pictovalue.png
-		// use this->picto='pictovalue@module'
-		$this->picto = 'mymodule@mymodule'; // mypicto@mymodule
+		$this->picto='prestashop@prestashop'
 		// Defined all module parts (triggers, login, substitutions, menus, css, etc...)
 		// for default path (eg: /mymodule/core/xxxxx) (0=disable, 1=enable)
 		// for specific path of parts (eg: /mymodule/core/modules/barcode)
@@ -96,7 +90,7 @@ class modMyModule extends DolibarrModules
 			// Set this to 1 if module has its own models directory
 			//'models' => 0,
 			// Set this to relative path of css if module has its own css file
-			'css' => array('mymodule/css/mycss.css.php'),
+			'css' => array('prestashop/css/mycss.css.php'),
 			// Set this to relative path of js file if module must load a js on all pages
 			// 'js' => array('mymodule/js/mymodule.js'),
 			// Set here all hooks context managed by module
@@ -123,7 +117,7 @@ class modMyModule extends DolibarrModules
 
 		// Config pages. Put here list of php pages
 		// stored into mymodule/admin directory, used to setup module.
-		$this->config_page_url = array("admin_mymodule.php@mymodule");
+		$this->config_page_url = array("admin_prestashop.php@prestashop");
 
 		// Dependencies
 		// A condition to hide module
@@ -138,9 +132,9 @@ class modMyModule extends DolibarrModules
 		// Minimum version of PHP required by module
 		$this->phpmin = array(5, 3);
 		// Minimum version of Dolibarr required by module
-		$this->need_dolibarr_version = array(3, 2);
+		$this->need_dolibarr_version = array(3, 6);
 		// Language files list (langfiles@mymodule)
-		$this->langfiles = array("mymodule@mymodule");
+		$this->langfiles = array("prestashop@prestashop");
 		// Constants
 		// List of particular constants to add when module is enabled
 		// (name, type ['chaine' or ?], value, description, visibility, entity ['current' or 'allentities'], delete on unactive)
@@ -195,9 +189,9 @@ class modMyModule extends DolibarrModules
 		// 'user'             to add a tab in user view
 
 		// Dictionaries
-		if (! isset($conf->mymodule->enabled)) {
-			$conf->mymodule=new stdClass();
-			$conf->mymodule->enabled = 0;
+		if (! isset($conf->prestashop->enabled)) {
+			$conf->prestashop=new stdClass();
+			$conf->prestashop->enabled = 0;
 		}
 		$this->dictionaries = array();
 		/* Example:
@@ -247,7 +241,7 @@ class modMyModule extends DolibarrModules
 		// Example:
 		$this->boxes = array(
 			0 => array(
-				'file' => 'mybox@mymodule',
+				'file' => 'mybox@prestashop',
 				'note' => '',
 				'enabledbydefaulton' => 'Home'
 			)
@@ -501,6 +495,6 @@ class modMyModule extends DolibarrModules
 	 */
 	private function loadTables()
 	{
-		return $this->_load_tables('/mymodule/sql/');
+		return $this->_load_tables('/prestashop/sql/');
 	}
 }

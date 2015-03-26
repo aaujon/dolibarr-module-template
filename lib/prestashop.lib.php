@@ -23,20 +23,20 @@
  *				Put some comments here
  */
 
-function mymoduleAdminPrepareHead()
+function prestashopAdminPrepareHead()
 {
 	global $langs, $conf;
 
-	$langs->load("mymodule@mymodule");
+	$langs->load("prestashop@prestashop");
 
 	$h = 0;
 	$head = array();
 
-	$head[$h][0] = dol_buildpath("/mymodule/admin/admin_mymodule.php", 1);
+	$head[$h][0] = dol_buildpath("/prestashop/admin/admin_prestashop.php", 1);
 	$head[$h][1] = $langs->trans("Settings");
 	$head[$h][2] = 'settings';
 	$h++;
-	$head[$h][0] = dol_buildpath("/mymodule/admin/about.php", 1);
+	$head[$h][0] = dol_buildpath("/prestashop/admin/about.php", 1);
 	$head[$h][1] = $langs->trans("About");
 	$head[$h][2] = 'about';
 	$h++;
@@ -49,7 +49,7 @@ function mymoduleAdminPrepareHead()
 	//$this->tabs = array(
 	//	'entity:-tabname:Title:@mymodule:/mymodule/mypage.php?id=__ID__'
 	//); // to remove a tab
-	complete_head_from_modules($conf, $langs, $object, $head, $h, 'mymodule');
+	complete_head_from_modules($conf, $langs, $object, $head, $h, 'prestashop');
 
 	return $head;
 }
