@@ -117,7 +117,7 @@ class modPrestashop extends DolibarrModules
 
 		// Config pages. Put here list of php pages
 		// stored into prestashop/admin directory, used to setup module.
-		$this->config_page_url = array("admin_prestashop.php@prestashop");
+		$this->config_page_url = array("configure.php@prestashop");
 
 		// Dependencies
 		// A condition to hide module
@@ -132,30 +132,30 @@ class modPrestashop extends DolibarrModules
 		// Minimum version of PHP required by module
 		$this->phpmin = array(5, 3);
 		// Minimum version of Dolibarr required by module
-		$this->need_dolibarr_version = array(3, 3);
+		$this->need_dolibarr_version = array(3, 6);
 		// Language files list (langfiles@prestashop)
 		$this->langfiles = array("prestashop@prestashop");
 		// Constants
 		// List of particular constants to add when module is enabled
 		// (name, type ['chaine' or ?], value, description, visibility, entity ['current' or 'allentities'], delete on unactive)
-		// Example:
+
 		$this->const = array(
-			//	0 => array(
-			//		'MYMODULE_MYNEWCONST1',
-			//		'chaine',
-			//		'myvalue',
-			//		'This is a constant to add',
-			//		1,
-			//      'current',
-			//      0,
-			//	),
-			//	1 => array(
-			//		'MYMODULE_MYNEWCONST2',
-			//		'chaine',
-			//		'myvalue',
-			//		'This is another constant to add',
-			//		0,
-			//	)
+			0 => array(
+			    'PRESTASHOP_URL',
+			    'chaine',
+				'localhost',
+				'URL of your Prestashop site',
+			    1,
+			    'current',
+		        0),
+			1 => array(
+					'PRESTASHOP_KEY',
+					'chaine',
+					'',
+					'Prestashop api key',
+                    'current',
+					0
+				)
 		);
 
 		// Array to add new pages in new tabs
