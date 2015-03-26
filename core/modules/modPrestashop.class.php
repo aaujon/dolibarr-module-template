@@ -67,7 +67,7 @@ class modPrestashop extends DolibarrModules
 		// If file is in theme/yourtheme/img directory under name object_pictovalue.png
 		// use this->picto='pictovalue'
 		// If file is in module/img directory under name object_pictovalue.png
-		$this->picto='prestashop@prestashop'
+		$this->picto='prestashop@prestashop';
 		// Defined all module parts (triggers, login, substitutions, menus, css, etc...)
 		// for default path (eg: /prestashop/core/xxxxx) (0=disable, 1=enable)
 		// for specific path of parts (eg: /prestashop/core/modules/barcode)
