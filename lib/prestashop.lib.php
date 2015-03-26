@@ -17,8 +17,8 @@
  */
 
 /**
- *	\file		lib/mymodule.lib.php
- *	\ingroup	mymodule
+ *	\file		lib/prestashop.lib.php
+ *	\ingroup	prestashop
  *	\brief		This file is an example module library
  *				Put some comments here
  */
@@ -44,10 +44,10 @@ function prestashopAdminPrepareHead()
 	// Show more tabs from modules
 	// Entries must be declared in modules descriptor with line
 	//$this->tabs = array(
-	//	'entity:+tabname:Title:@mymodule:/mymodule/mypage.php?id=__ID__'
+	//	'entity:+tabname:Title:@prestashop:/prestashop/mypage.php?id=__ID__'
 	//); // to add new tab
 	//$this->tabs = array(
-	//	'entity:-tabname:Title:@mymodule:/mymodule/mypage.php?id=__ID__'
+	//	'entity:-tabname:Title:@prestashop:/prestashop/mypage.php?id=__ID__'
 	//); // to remove a tab
 	complete_head_from_modules($conf, $langs, $object, $head, $h, 'prestashop');
 

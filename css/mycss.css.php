@@ -18,7 +18,7 @@
 
 /**
  *	\file		css/mycss.css.php
- *	\ingroup	mymodule
+ *	\ingroup	prestashop
  *	\brief		This file is an example css file
  *				Put some comments here
  */

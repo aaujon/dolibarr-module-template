@@ -19,7 +19,7 @@
 
 /**
  *	\file		scripts/myscript.php
- *	\ingroup	mymodule
+ *	\ingroup	prestashop
  *	\brief		This file is an example command line script
  *				Put some comments here
  */

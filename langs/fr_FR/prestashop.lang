@@ -28,16 +28,16 @@ Module10000Desc = Description de mon module
 #
 # Page d'administration
 #
-MyModuleSetup = Configuration du module mon module
+PrestashopSetup = Configuration du module mon module
 Settings = Réglages
-MyModuleSetupPage = Page de réglage de mon module
+PrestashopSetupPage = Page de réglage de mon module
 
 #
 # Page À propos
 #
 About = À propos
-MyModuleAbout = À propos de mon module
-MyModuleAboutPage = Page à propos de mon module
+PrestashopAbout = À propos de mon module
+PrestashopAboutPage = Page à propos de mon module
 
 #
 # Page d'exemple

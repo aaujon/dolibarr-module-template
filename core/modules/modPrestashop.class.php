@@ -69,30 +69,30 @@ class modPrestashop extends DolibarrModules
 		// If file is in module/img directory under name object_pictovalue.png
 		$this->picto='prestashop@prestashop'
 		// Defined all module parts (triggers, login, substitutions, menus, css, etc...)
-		// for default path (eg: /mymodule/core/xxxxx) (0=disable, 1=enable)
-		// for specific path of parts (eg: /mymodule/core/modules/barcode)
-		// for specific css file (eg: /mymodule/css/mymodule.css.php)
+		// for default path (eg: /prestashop/core/xxxxx) (0=disable, 1=enable)
+		// for specific path of parts (eg: /prestashop/core/modules/barcode)
+		// for specific css file (eg: /prestashop/css/prestashop.css.php)
 		$this->module_parts = array(
 			// Set this to 1 if module has its own trigger directory
-			'triggers' => 1,
+			'triggers' => 0,
 			// Set this to 1 if module has its own login method directory
-			//'login' => 0,
+			'login' => 0,
 			// Set this to 1 if module has its own substitution function file
-			//'substitutions' => 0,
+			'substitutions' => 0,
 			// Set this to 1 if module has its own menus handler directory
-			//'menus' => 0,
+			'menus' => 0,
 			// Set this to 1 if module has its own theme directory (theme)
-			// 'theme' => 0,
+			'theme' => 0,
 			// Set this to 1 if module overwrite template dir (core/tpl)
-			// 'tpl' => 0,
+			'tpl' => 0,
 			// Set this to 1 if module has its own barcode directory
-			//'barcode' => 0,
+			'barcode' => 0,
 			// Set this to 1 if module has its own models directory
-			//'models' => 0,
+			'models' => 0,
 			// Set this to relative path of css if module has its own css file
 			'css' => array('prestashop/css/mycss.css.php'),
 			// Set this to relative path of js file if module must load a js on all pages
-			// 'js' => array('mymodule/js/mymodule.js'),
+			// 'js' => array('prestashop/js/prestashop.js'),
 			// Set here all hooks context managed by module
 			// 'hooks' => array('hookcontext1','hookcontext2'),
 			// To force the default directories names
@@ -105,18 +105,18 @@ class modPrestashop extends DolibarrModules
 			// 'workflow' => array(
 			//     'WORKFLOW_MODULE1_YOURACTIONTYPE_MODULE2' => array(
 			//         'enabled' => '! empty($conf->module1->enabled) && ! empty($conf->module2->enabled)',
-			//         'picto' => 'yourpicto@mymodule',
+			//         'picto' => 'yourpicto@prestashop',
 			//         'warning' => 'WarningTextTranslationKey',
 			//      ),
 			// ),
 		);
 
 		// Data directories to create when module is enabled.
-		// Example: this->dirs = array("/mymodule/temp");
-		$this->dirs = array();
+		// Example: this->dirs = array("/prestashop/temp");
+		$this->dirs = array("/prestashop/tmp");
 
 		// Config pages. Put here list of php pages
-		// stored into mymodule/admin directory, used to setup module.
+		// stored into prestashop/admin directory, used to setup module.
 		$this->config_page_url = array("admin_prestashop.php@prestashop");
 
 		// Dependencies
@@ -132,8 +132,8 @@ class modPrestashop extends DolibarrModules
 		// Minimum version of PHP required by module
 		$this->phpmin = array(5, 3);
 		// Minimum version of Dolibarr required by module
-		$this->need_dolibarr_version = array(3, 6);
-		// Language files list (langfiles@mymodule)
+		$this->need_dolibarr_version = array(3, 3);
+		// Language files list (langfiles@prestashop)
 		$this->langfiles = array("prestashop@prestashop");
 		// Constants
 		// List of particular constants to add when module is enabled
@@ -162,9 +162,9 @@ class modPrestashop extends DolibarrModules
 		// Example:
 		$this->tabs = array(
 			//	// To add a new tab identified by code tabname1
-			//	'objecttype:+tabname1:Title1:langfile@mymodule:$user->rights->mymodule->read:/mymodule/mynewtab1.php?id=__ID__',
+			//	'objecttype:+tabname1:Title1:langfile@prestashop:$user->rights->prestashop->read:/prestashop/mynewtab1.php?id=__ID__',
 			//	// To add another new tab identified by code tabname2
-			//	'objecttype:+tabname2:Title2:langfile@mymodule:$user->rights->othermodule->read:/mymodule/mynewtab2.php?id=__ID__',
+			//	'objecttype:+tabname2:Title2:langfile@prestashop:$user->rights->othermodule->read:/prestashop/mynewtab2.php?id=__ID__',
 			//	// To remove an existing tab identified by code tabname
 			//	'objecttype:-tabname'
 		);
@@ -196,9 +196,9 @@ class modPrestashop extends DolibarrModules
 		$this->dictionaries = array();
 		/* Example:
 		  // This is to avoid warnings
-		  if (! isset($conf->mymodule->enabled)) $conf->mymodule->enabled=0;
+		  if (! isset($conf->prestashop->enabled)) $conf->prestashop->enabled=0;
 		  $this->dictionaries=array(
-			  'langs'=>'mymodule@mymodule',
+			  'langs'=>'prestashop@prestashop',
 			  // List of tables we want to see into dictonnary editor
 			  'tabname'=>array(
 				  MAIN_DB_PREFIX."table1",
@@ -228,9 +228,9 @@ class modPrestashop extends DolibarrModules
 			  'tabrowid'=>array("rowid","rowid","rowid"),
 			  // Condition to show each dictionary
 			  'tabcond'=>array(
-				  $conf->mymodule->enabled,
-				  $conf->mymodule->enabled,
-				  $conf->mymodule->enabled
+				  $conf->prestashop->enabled,
+				  $conf->prestashop->enabled,
+				  $conf->prestashop->enabled
 			  )
 		  );
 		 */
@@ -278,20 +278,20 @@ class modPrestashop extends DolibarrModules
 		//	// This is a Top menu entry
 		//	'type'=>'top',
 		// Menu's title. FIXME: use a translation key
-		//	'titre'=>'MyModule top menu',
+		//	'titre'=>'Prestashop top menu',
 		// This menu's mainmenu ID
-		//	'mainmenu'=>'mymodule',
+		//	'mainmenu'=>'prestashop',
 		// This menu's leftmenu ID
-		//	'leftmenu'=>'mymodule',
-		//	'url'=>'/mymodule/pagetop.php',
+		//	'leftmenu'=>'prestashop',
+		//	'url'=>'/prestashop/pagetop.php',
 		//	// Lang file to use (without .lang) by module.
 		//	// File must be in langs/code_CODE/ directory.
 		//	'langs'=>'mylangfile',
 		//	'position'=>100,
 		//	// Define condition to show or hide menu entry.
-		//	// Use '$conf->mymodule->enabled' if entry must be visible if module is enabled.
-		//	'enabled'=>'$conf->mymodule->enabled',
-		//	// Use 'perms'=>'$user->rights->mymodule->level1->level2'
+		//	// Use '$conf->prestashop->enabled' if entry must be visible if module is enabled.
+		//	'enabled'=>'$conf->prestashop->enabled',
+		//	// Use 'perms'=>'$user->rights->prestashop->level1->level2'
 		//	// if you want your menu with a permission rules
 		//	'perms'=>'1',
 		//	'target'=>'',
@@ -305,20 +305,20 @@ class modPrestashop extends DolibarrModules
 		//	// This is a Left menu entry
 		//	'type'=>'left',
 		// Menu's title. FIXME: use a translation key
-		//	'titre'=>'MyModule left menu',
+		//	'titre'=>'Prestashop left menu',
 		// This menu's mainmenu ID
-		//	'mainmenu'=>'mymodule',
+		//	'mainmenu'=>'prestashop',
 		// This menu's leftmenu ID
-		//	'leftmenu'=>'mymodule',
-		//	'url'=>'/mymodule/pagelevel1.php',
+		//	'leftmenu'=>'prestashop',
+		//	'url'=>'/prestashop/pagelevel1.php',
 		//	// Lang file to use (without .lang) by module.
 		//	// File must be in langs/code_CODE/ directory.
 		//	'langs'=>'mylangfile',
 		//	'position'=>100,
 		//	// Define condition to show or hide menu entry.
-		//	// Use '$conf->mymodule->enabled' if entry must be visible if module is enabled.
-		//	'enabled'=>'$conf->mymodule->enabled',
-		//	// Use 'perms'=>'$user->rights->mymodule->level1->level2'
+		//	// Use '$conf->prestashop->enabled' if entry must be visible if module is enabled.
+		//	'enabled'=>'$conf->prestashop->enabled',
+		//	// Use 'perms'=>'$user->rights->prestashop->level1->level2'
 		//	// if you want your menu with a permission rules
 		//	'perms'=>'1',
 		//	'target'=>'',
@@ -333,21 +333,21 @@ class modPrestashop extends DolibarrModules
 		//	// This is a Left menu entry
 		//	'type'=>'left',
 		// Menu's title. FIXME: use a translation key
-		//	'titre'=>'MyModule left menu',
+		//	'titre'=>'Prestashop left menu',
 		// This menu's mainmenu ID
 		//	'mainmenu'=>'mainmenucode',
 		// This menu's leftmenu ID
-		//	'leftmenu'=>'mymodule',
-		//	'url'=>'/mymodule/pagelevel2.php',
+		//	'leftmenu'=>'prestashop',
+		//	'url'=>'/prestashop/pagelevel2.php',
 		//	// Lang file to use (without .lang) by module.
 		//	// File must be in langs/code_CODE/ directory.
 		//	'langs'=>'mylangfile',
 		//	'position'=>100,
 		//	// Define condition to show or hide menu entry.
-		//	// Use '$conf->mymodule->enabled' if entry must be visible if module is enabled.
+		//	// Use '$conf->prestashop->enabled' if entry must be visible if module is enabled.
 		//	// Use '$leftmenu==\'system\'' to show if leftmenu system is selected.
-		//	'enabled'=>'$conf->mymodule->enabled',
-		//	// Use 'perms'=>'$user->rights->mymodule->level1->level2'
+		//	'enabled'=>'$conf->prestashop->enabled',
+		//	// Use 'perms'=>'$user->rights->prestashop->level1->level2'
 		//	// if you want your menu with a permission rules
 		//	'perms'=>'1',
 		//	'target'=>'',
@@ -488,13 +488,13 @@ class modPrestashop extends DolibarrModules
 	/**
 	 * Create tables, keys and data required by module
 	 * Files llx_table1.sql, llx_table1.key.sql llx_data.sql with create table, create keys
-	 * and create data commands must be stored in directory /mymodule/sql/
+	 * and create data commands must be stored in directory /prestashop/sql/
 	 * This function is called by this->init
 	 *
 	 * 	@return		int		<=0 if KO, >0 if OK
 	 */
 	private function loadTables()
 	{
-		return $this->_load_tables('/prestashop/sql/');
+		return 1;//	return $this->_load_tables('/prestashop/sql/');
 	}
 }

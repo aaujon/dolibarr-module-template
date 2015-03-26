@@ -18,7 +18,7 @@
 
 /**
  *	\file		mypage.php
- *	\ingroup	mymodule
+ *	\ingroup	prestashop
  *	\brief		This file is an example php page
  *				Put some comments here
  */
@@ -68,10 +68,10 @@ if (! $res) {
 
 global $db, $langs, $user;
 
-dol_include_once('/mymodule/class/myclass.class.php');
+dol_include_once('/prestashop/class/myclass.class.php');
 
 // Load translation files required by the page
-$langs->load("mymodule@mymodule");
+$langs->load("prestashop@prestashop");
 
 // Get parameters
 $id = GETPOST('id', 'int');

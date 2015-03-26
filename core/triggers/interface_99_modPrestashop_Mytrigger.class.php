@@ -17,12 +17,12 @@
  */
 
 /**
- * 	\file		core/triggers/interface_99_modMyModule_Mytrigger.class.php
- * 	\ingroup	mymodule
+ * 	\file		core/triggers/interface_99_modPrestashop_Mytrigger.class.php
+ * 	\ingroup	prestashop
  * 	\brief		Sample trigger
  * 	\remarks	You can create other triggers by copying this one
  * 				- File name should be either:
- * 					interface_99_modMyModule_Mytrigger.class.php
+ * 					interface_99_modPrestashop_Mytrigger.class.php
  * 					interface_99_all_Mytrigger.class.php
  * 				- The file must stay in core/triggers
  * 				- The class name must be InterfaceMytrigger
@@ -76,7 +76,7 @@ class InterfaceMytrigger extends MyTrigger
 			. "They are provided for tutorial purpose only.";
 		// 'development', 'experimental', 'dolibarr' or version
 		$this->version = 'development';
-		$this->picto = 'mymodule@mymodule';
+		$this->picto = 'prestashop@prestashop';
 	}
 
 	/**

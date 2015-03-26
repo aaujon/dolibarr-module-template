@@ -18,7 +18,7 @@
 
 /**
  * 	\file		core/boxes/mybox.php
- * 	\ingroup	mymodule
+ * 	\ingroup	prestashop
  * 	\brief		This file is a sample box definition file
  * 				Put some comments here
  */
@@ -51,7 +51,7 @@ class mybox extends ModeleBoxes
 	/**
 	 * @var string[] Module dependencies
 	 */
-	public $depends = array('mymodule');
+	public $depends = array('prestashop');
 
 	/**
 	 * @var DoliDb Database handler
@@ -103,7 +103,7 @@ class mybox extends ModeleBoxes
 		// Use configuration value for max lines count
 		$this->max = $max;
 
-		//include_once DOL_DOCUMENT_ROOT . "/mymodule/class/mymodule.class.php";
+		//include_once DOL_DOCUMENT_ROOT . "/prestashop/class/prestashop.class.php";
 
 		// Populate the head at runtime
 		$text = $langs->trans("MyBoxDescription", $max);

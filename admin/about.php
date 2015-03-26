@@ -18,7 +18,7 @@
 
 /**
  * 	\file		admin/about.php
- * 	\ingroup	mymodule
+ * 	\ingroup	prestashop
  * 	\brief		This file is an example about page
  * 				Put some comments here
  */
@@ -32,7 +32,7 @@ global $langs, $user;
 
 // Libraries
 require_once DOL_DOCUMENT_ROOT . "/core/lib/admin.lib.php";
-require_once '../lib/mymodule.lib.php';
+require_once '../lib/prestashop.lib.php';
 
 // Use the .inc variant because we don't have autoloading support
 require_once '../lib/php-markdown/Michelf/Markdown.inc.php';
@@ -41,7 +41,7 @@ use \Michelf\Markdown;
 
 //require_once "../class/myclass.class.php";
 // Translations
-$langs->load("mymodule@mymodule");
+$langs->load("prestashop@prestashop");
 
 // Access control
 if (! $user->admin) {
@@ -58,7 +58,7 @@ $action = GETPOST('action', 'alpha');
 /*
  * View
  */
-$page_name = "MyModuleAbout";
+$page_name = "PrestashopAbout";
 llxHeader('', $langs->trans($page_name));
 
 // Subheader
@@ -67,26 +67,26 @@ $linkback = '<a href="' . DOL_URL_ROOT . '/admin/modules.php">'
 print_fiche_titre($langs->trans($page_name), $linkback);
 
 // Configuration header
-$head = mymoduleAdminPrepareHead();
+$head = prestashopAdminPrepareHead();
 dol_fiche_head(
 	$head,
 	'about',
 	$langs->trans("Module10000Name"),
 	0,
-	'mymodule@mymodule'
+	'prestashop@prestashop'
 );
 
 // About page goes here
-echo $langs->trans("MyModuleAboutPage");
+echo $langs->trans("PrestashopAboutPage");
 
 echo '<br>';
 
-$buffer = file_get_contents(dol_buildpath('/mymodule/README.md', 0));
+$buffer = file_get_contents(dol_buildpath('/prestashop/README.md', 0));
 echo Markdown::defaultTransform($buffer);
 
 echo '<br>',
-'<a href="' . dol_buildpath('/mymodule/COPYING', 1) . '">',
-'<img src="' . dol_buildpath('/mymodule/img/gplv3.png', 1) . '"/>',
+'<a href="' . dol_buildpath('/prestashop/COPYING', 1) . '">',
+'<img src="' . dol_buildpath('/prestashop/img/gplv3.png', 1) . '"/>',
 '</a>';
 
 

@@ -28,16 +28,16 @@ Module10000Desc = My module description
 #
 # Admin page
 #
-MyModuleSetup = My module setup
+PrestashopSetup = My module setup
 Settings = Settings
-MyModuleSetupPage = My module setup page
+PrestashopSetupPage = My module setup page
 
 #
 # About page
 #
 About = About
-MyModuleAbout = About my module
-MyModuleAboutPage = My module about page
+PrestashopAbout = About my module
+PrestashopAboutPage = My module about page
 
 #
 # Sample page
