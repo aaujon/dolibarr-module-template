@@ -272,59 +272,32 @@ class modPrestashop extends DolibarrModules
 		// Add here entries to declare new menus
 		//
 		// Example to declare a new Top Menu entry and its Left menu entry:
-		//$this->menu[]=array(
-		//	// Put 0 if this is a top menu
-		//	'fk_menu'=>0,
-		//	// This is a Top menu entry
-		//	'type'=>'top',
+		$this->menu[$r]=array(
+			// Put 0 if this is a top menu
+			'fk_menu'=>0,
+			// This is a Top menu entry
+			'type'=>'top',
 		// Menu's title. FIXME: use a translation key
-		//	'titre'=>'Prestashop top menu',
+			'titre'=>'Prestashop',
 		// This menu's mainmenu ID
-		//	'mainmenu'=>'prestashop',
+			'mainmenu'=>'prestashop',
 		// This menu's leftmenu ID
-		//	'leftmenu'=>'prestashop',
-		//	'url'=>'/prestashop/pagetop.php',
-		//	// Lang file to use (without .lang) by module.
-		//	// File must be in langs/code_CODE/ directory.
-		//	'langs'=>'mylangfile',
-		//	'position'=>100,
-		//	// Define condition to show or hide menu entry.
-		//	// Use '$conf->prestashop->enabled' if entry must be visible if module is enabled.
-		//	'enabled'=>'$conf->prestashop->enabled',
-		//	// Use 'perms'=>'$user->rights->prestashop->level1->level2'
-		//	// if you want your menu with a permission rules
-		//	'perms'=>'1',
-		//	'target'=>'',
-		//	// 0=Menu for internal users, 1=external users, 2=both
-		//	'user'=>2
-		//);
-		//$this->menu[]=array(
-		//	// Use r=value where r is index key used for the parent menu entry
-		//	// (higher parent must be a top menu entry)
-		//	'fk_menu'=>'r=0',
-		//	// This is a Left menu entry
-		//	'type'=>'left',
-		// Menu's title. FIXME: use a translation key
-		//	'titre'=>'Prestashop left menu',
-		// This menu's mainmenu ID
-		//	'mainmenu'=>'prestashop',
-		// This menu's leftmenu ID
-		//	'leftmenu'=>'prestashop',
-		//	'url'=>'/prestashop/pagelevel1.php',
-		//	// Lang file to use (without .lang) by module.
-		//	// File must be in langs/code_CODE/ directory.
-		//	'langs'=>'mylangfile',
-		//	'position'=>100,
-		//	// Define condition to show or hide menu entry.
-		//	// Use '$conf->prestashop->enabled' if entry must be visible if module is enabled.
-		//	'enabled'=>'$conf->prestashop->enabled',
-		//	// Use 'perms'=>'$user->rights->prestashop->level1->level2'
-		//	// if you want your menu with a permission rules
-		//	'perms'=>'1',
-		//	'target'=>'',
-		//	// 0=Menu for internal users, 1=external users, 2=both
-		//	'user'=>2
-		//);
+			'leftmenu'=>'prestashop',
+			'url'=>'/prestashop/main.php',
+			// Lang file to use (without .lang) by module.
+			// File must be in langs/code_CODE/ directory.
+			'langs'=>'prestashop',
+			'position'=>100,
+			// Define condition to show or hide menu entry.
+			// Use '$conf->prestashop->enabled' if entry must be visible if module is enabled.
+			'enabled'=>'$conf->prestashop->enabled',
+			// Use 'perms'=>'$user->rights->prestashop->level1->level2'
+			// if you want your menu with a permission rules
+			'perms'=>'1',
+			'target'=>'',
+			// 0=Menu for internal users, 1=external users, 2=both
+			'user'=>2
+		);
 		//
 		// Example to declare a Left Menu entry into an existing Top menu entry:
 		//$this->menu[]=array(

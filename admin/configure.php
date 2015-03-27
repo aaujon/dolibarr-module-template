@@ -65,7 +65,7 @@ if ($actionsave)
 llxHeader();
 
 $linkback='<a href="'.DOL_URL_ROOT.'/admin/modules.php">'.$langs->trans("BackToModuleList").'</a>';
-print_fiche_titre($langs->trans("PrestashopSetup"),$linkback,'setup');
+print_fiche_titre($langs->trans("Prestashop module setup"),$linkback,'setup');
 
 print $langs->trans("PrestashopDesc")."<br>\n";
 print "<br>\n";
@@ -77,17 +77,18 @@ print '<table class="noborder" width="100%">';
 print '<tr class="liste_titre">';
 print "<td>".$langs->trans("Parameter")."</td>";
 print "<td>".$langs->trans("Value")."</td>";
-//print "<td>".$langs->trans("Examples")."</td>";
+print "<td>".$langs->trans("Examples")."</td>";
 print "<td>&nbsp;</td>";
 print "</tr>";
 
 print '<tr class="impair">';
-print '<td class="fieldrequired">'.$langs->trans("KeyForWebServicesAccess").'</td>';
-print '<td><input type="text" class="flat" id="PRESTASHOP_URL" name="PRESTASHOP_URL" value="'. (GETPOST('PRESTASHOP_URL')?GETPOST('PRESTASHOP_URL'):(! empty($conf->global->PRESTASHOP_URL)?$conf->global->PRESTASHOP_URL:'')) . '" size="40">';
-print '</td>';
-print '<td class="fieldrequired">'.$langs->trans("KeyForWebServicesAccess").'</td>';
-print '<td><input type="text" class="flat" id="PRESTASHOP_KEY" name="PRESTASHOP_KEY" value="'. (GETPOST('PRESTASHOP_KEY')?GETPOST('PRESTASHOP_KEY'):(! empty($conf->global->PRESTASHOP_KEY)?$conf->global->PRESTASHOP_KEY:'')) . '" size="40">';
-print '</td>';
+print ' <td class="fieldrequired">'.$langs->trans("Prestashop URL").'</td>';
+print ' <td><input type="text" class="flat" id="PRESTASHOP_URL" name="PRESTASHOP_URL" value="'. (GETPOST('PRESTASHOP_URL')?GETPOST('PRESTASHOP_URL'):(! empty($conf->global->PRESTASHOP_URL)?$conf->global->PRESTASHOP_URL:'')) . '" size="40"></td>';
+print ' <td>http://myserveur.com</td>';
+print '<tr/>';
+print '<tr class="impair">';
+print ' <td class="fieldrequired">'.$langs->trans("Prestashop api key").'</td>';
+print ' <td><input type="text" class="flat" id="PRESTASHOP_KEY" name="PRESTASHOP_KEY" value="'. (GETPOST('PRESTASHOP_KEY')?GETPOST('PRESTASHOP_KEY'):(! empty($conf->global->PRESTASHOP_KEY)?$conf->global->PRESTASHOP_KEY:'')) . '" size="40"></td>';
 print '<td>&nbsp;</td>';
 print '</tr>';
 
@@ -98,11 +99,6 @@ print '<input type="submit" name="save" class="button" value="'.$langs->trans("S
 print '</center>';
 
 print '</form>';
-
-print '<br><br>';
-
-print $langs->trans("OnlyActiveElementsAreShown", DOL_URL_ROOT.'/admin/modules.php');
-
 
 llxFooter();
 $db->close();

@@ -17,10 +17,9 @@
  */
 
 /**
- *	\file		mypage.php
+ *	\file		main.php
  *	\ingroup	prestashop
- *	\brief		This file is an example php page
- *				Put some comments here
+ *	\brief		Main prestashop module page
  */
 
 //if (! defined('NOREQUIREUSER'))	define('NOREQUIREUSER','1');
@@ -90,13 +89,13 @@ if (empty($action) && empty($id) && empty($ref)) {
 }
 
 // Load object if id or ref is provided as parameter
-$object = new MyClass($db);
+/*$object = new MyClass($db);
 if (($id > 0 || ! empty($ref)) && $action != 'add') {
 	$result = $object->fetch($id, $ref);
 	if ($result < 0) {
 		dol_print_error($db);
 	}
-}
+}*/
 
 /*
  * ACTIONS
@@ -105,7 +104,7 @@ if (($id > 0 || ! empty($ref)) && $action != 'add') {
  */
 
 if ($action == 'add') {
-	$myobject = new MyClass($db);
+	/*$myobject = new MyClass($db);
 	$myobject->prop1 = $_POST["field1"];
 	$myobject->prop2 = $_POST["field2"];
 	$result = $myobject->create($user);
@@ -114,7 +113,7 @@ if ($action == 'add') {
 	} {
 		// Creation KO
 		$mesg = $myobject->error;
-	}
+	}*/
 }
 
 /*
@@ -122,14 +121,47 @@ if ($action == 'add') {
  *
  * Put here all code to build page
  */
+llxHeader('', $langs->trans('Prestashop synchronisation'), '');
 
-llxHeader('', $langs->trans('MyPageName'), '');
+print '<br />
+          <fieldset class="width10">
+			    <legend><img src="img/synchro.png" /> '.$langs->trans('Synchronization').'</legend>    
+				    <fieldset style="width8">
+						<legend>'.$langs->trans('Clients').'</legend>  
+								  <a>'.$langs->trans('Last synchronization : ').', 
+								  '.$langs->trans('There is ').$nb_clients_to_sync.$langs->trans(' updated or new clients').'</a><br />																													
+								  <img src="img/yes.gif" /> > </a><a href="synchroclients.php" target="blank" ><b style="color: #000099;">' .
+                                            $langs->trans('Synchronize updated and new clients').'</b></a><br />
+                                  <img src="img/yes.gif" /> > </a><a href="synchroclients.php?action=reset" target="blank" ><b style="color: #000099;">' .
+                                            $langs->trans('Synchronize all clients').'</b></a><br />
+                            <br />
+					</fieldset>
+					<fieldset style="width8">
+						<legend>'.$langs->trans('Products').'</legend>  
+								   <a>'.$langs->trans('Last synchronization : ').$langs->trans('There is ').$nb_products_to_sync.$langs->trans(' updated or new products').'</a><br />
+                                  <img src="img/yes.gif" /> > </a><a href="synchroproducts.php" target="blank" ><b style="color: #000099;">' .
+                                            $langs->trans('Synchronize updated and new products').'</b></a><br />
+                                  <img src="img/yes.gif" /> > </a><a href="synchroproducts.php?action=reset" target="blank" ><b style="color: #000099;">' .
+                                            $langs->trans('Synchronize all products').'</b></a><br />	
+                            <br />		
+					</fieldset> 
+					<fieldset style="width8">
+						<legend>'.$langs->trans('Orders and invoices').'</legend>  
+								   <a>'.$langs->trans('Last synchronization : ').$langs->trans('There is ').$nb_orders_to_sync.$langs->trans(' updated or new orders or invoices').'</a><br />
+                                  <img src="img/yes.gif" /> > </a><a href="synchroorders.php" target="blank" ><b style="color: #000099;">' .
+                                            $langs->trans('Synchronize updated and new orders or invoices').'</b></a><br />
+                                  <img src="img/yes.gif" /> > </a><a href="synchroorders.php?action=reset" target="blank" ><b style="color: #000099;">' .
+                                            $langs->trans('Synchronize all orders and invoices').'</b></a><br />
+                            <br />		
+					</fieldset>                 
+			</fieldset>';
 
-$form = new Form($db);
+
+//$form = new Form($db);
 
 // Put here content of your page
 // Example 1: Adding jquery code
-echo '<script type="text/javascript" language="javascript">
+/*echo '<script type="text/javascript" language="javascript">
 	jQuery(document).ready(function() {
 		public function init_myfunc()
 		{
@@ -141,11 +173,13 @@ echo '<script type="text/javascript" language="javascript">
 			init_needroot();
 		});
 	});
-</script>';
+</script>';*/
 
 // Example 2: Adding links to objects
 // The class must extend CommonObject for this method to be available
-$somethingshown = $myobject->showLinkedObjectBlock();
+//$somethingshown = $myobject->showLinkedObjectBlock();
+
+dol_htmloutput_mesg($mesg);
 
 // End of page
 llxFooter();
